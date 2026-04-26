@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<DOCTYPE!html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -7,4 +7,25 @@
 </head>
 <body>
   <h1>To-Do List App</h1>
+
+  <ul>
+    {% for task in tasks %}
+    <li>{{ task }}</li>
+    {% endfor %}
+  </ul>
+
+  <form method="POST" action="{{ url_for('add_task') }}">
+    <label for="newTask">task:</label>
+    <input type="text" id="newTask" name="newTask" required>
+    <br><br>
+    <label for="newEmail">email:</label>
+    <input type="text" id="newEmail" name="newEmail" required><br><br>
+    <label for="priority">priority:</label>
+    <select id="priority" name="priority" required>
+      <option value="low">Low</option>
+      <option value="medium">Medium</option>
+      <option value="high">High</option>
+    </select><br><br>
+    <button type="submit">Add</button>
 </body>
+</html>
